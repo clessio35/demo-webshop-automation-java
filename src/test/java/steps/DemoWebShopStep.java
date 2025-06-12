@@ -1,16 +1,41 @@
 package steps;
 
+import org.openqa.selenium.WebDriver;
+
+import config.DriverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.DemoWebShopPage;
 
 public class DemoWebShopStep {
+	
+	private WebDriver driver;
+    private DemoWebShopPage demo;
 
+    public DemoWebShopStep() {
+        this.driver = DriverManager.getDriver();
+        this.demo = new DemoWebShopPage(driver);
+    }
+
+	@Given("que o usuario esta na pagina de registro")
+	public void que_o_usuario_esta_na_pagina_de_registro() {
+	    demo.accessRegisterPage();
+	}
+
+	@When("ele realiza o cadastro com dados vindos do banco")
+	public void ele_realiza_o_cadastro_com_dados_vindos_do_banco() {
+		demo.fillRegisterUser();
+	}
+
+	@Then("o sistema deve responder de acordo com o resultado esperado")
+	public void o_sistema_deve_responder_de_acordo_com_o_resultado_esperado() {
+	    demo.validateUserRegistration();
+	}
 	
 	@Given("que o usuario esta na pagina de login")
 	public void que_o_usuario_esta_na_pagina_de_login() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.accessLoginPage();
 	}
 
 	@When("ele realiza login com os dados do banco")
@@ -25,23 +50,6 @@ public class DemoWebShopStep {
 	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Given("que o usuario esta na pagina de registro")
-	public void que_o_usuario_esta_na_pagina_de_registro() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@When("ele realiza o cadastro com dados vindos do banco")
-	public void ele_realiza_o_cadastro_com_dados_vindos_do_banco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("o sistema deve responder de acordo com o resultado esperado")
-	public void o_sistema_deve_responder_de_acordo_com_o_resultado_esperado() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
 
 	@Given("que o usuario esta na pagina inicial")
 	public void que_o_usuario_esta_na_pagina_inicial() {
