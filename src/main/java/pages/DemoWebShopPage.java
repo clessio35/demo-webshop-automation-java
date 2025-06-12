@@ -4,12 +4,12 @@ import org.openqa.selenium.WebDriver;
 
 import com.github.javafaker.Faker;
 
+import config.DriverManager;
 import utils.MetodosUtils;
 
 public class DemoWebShopPage {
 
-    @SuppressWarnings("unused")
-	private WebDriver driver;
+    WebDriver driver = DriverManager.getDriver();
     private MetodosUtils metodo;
 
     public DemoWebShopPage(WebDriver driver) {
