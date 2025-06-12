@@ -6,7 +6,7 @@ Feature: Funcionalidades do Demo Web Shop com dados externos
     When ele realiza o cadastro com dados vindos do banco
     Then o sistema deve responder de acordo com o resultado esperado
     
-  @all @login @regressao @db
+  @all @login
   Scenario: Login com dados do banco
     Given que o usuario esta na pagina de login
     When ele realiza login com os dados do banco

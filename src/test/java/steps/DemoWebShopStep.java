@@ -40,14 +40,12 @@ public class DemoWebShopStep {
 
 	@When("ele realiza login com os dados do banco")
 	public void ele_realiza_login_com_os_dados_do_banco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.realizeLogin();
 	}
 
 	@Then("o sistema deve exibir o resultado esperado")
 	public void o_sistema_deve_exibir_o_resultado_esperado() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.validateLogin();
 	}
 
 
