@@ -51,20 +51,18 @@ public class DemoWebShopStep {
 
 	@Given("que o usuario esta na pagina inicial")
 	public void que_o_usuario_esta_na_pagina_inicial() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.accessLoginPage();
+	    demo.realizeLogin();
 	}
 
-	@When("ele realiza uma busca com o termo vindo do banco")
+	@When("ele realiza uma busca")
 	public void ele_realiza_uma_busca_com_o_termo_vindo_do_banco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.searchItems();
 	}
 
 	@Then("o sistema deve exibir os resultados correspondentes")
 	public void o_sistema_deve_exibir_os_resultados_correspondentes() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.validateResultsBySearch();
 	}
 
 	@Given("que o usuario esta logado")

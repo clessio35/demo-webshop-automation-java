@@ -1,9 +1,15 @@
 package utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -13,10 +19,14 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.cucumber.java.Scenario;
 
 public class MetodosUtils {
 
@@ -26,7 +36,7 @@ public class MetodosUtils {
 		this.driver = driver;
 	}
 
-	private static final String FILE_PATH = "src/main/resources/dadosUsuarios.xlsx"; // Corrigido
+	private static final String FILE_PATH = "src/main/resources/dadosUsuarios.xlsx";
 
 	// Salvar dados no Excel
 	public static void saveData(String firstName, String lastName, String email, String password) {
@@ -61,14 +71,14 @@ public class MetodosUtils {
 	// Ler célula específica por linha e nome da coluna
 	@SuppressWarnings("deprecation")
 	public static String readCell(int rowIndex, String columnName) {
-		try (FileInputStream fis = new FileInputStream(FILE_PATH);
-			 Workbook workbook = new XSSFWorkbook(fis)) {
+		try (FileInputStream fis = new FileInputStream(FILE_PATH); Workbook workbook = new XSSFWorkbook(fis)) {
 
 			Sheet sheet = workbook.getSheet("Usuarios");
 			Row headerRow = sheet.getRow(0);
 			Row dataRow = sheet.getRow(rowIndex);
 
-			if (headerRow == null || dataRow == null) return null;
+			if (headerRow == null || dataRow == null)
+				return null;
 
 			for (int i = 0; i < headerRow.getPhysicalNumberOfCells(); i++) {
 				String header = headerRow.getCell(i).getStringCellValue();
@@ -84,8 +94,40 @@ public class MetodosUtils {
 		}
 		return null;
 	}
+	
+	private static int screenshotCounter = 1;
 
-	// WebDriver helper methods
+    public static void takeStepScreenshot(WebDriver driver, String stepName) {
+        Scenario scenario = TestContext.getScenario();
+        if (scenario == null) return;
+
+        String scenarioName = scenario.getName().replaceAll("[^a-zA-Z0-9\\-_]", "_");
+        String safeStepName = stepName.replaceAll("[^a-zA-Z0-9\\-_]", "_");
+
+        Path screenshotDir = Paths.get("evidencias", scenarioName);
+        try {
+            Files.createDirectories(screenshotDir);
+        } catch (IOException e) {
+            System.err.println("Erro ao criar diretório: " + e.getMessage());
+            return;
+        }
+
+        String filename = String.format("%02d_%s.png", screenshotCounter++, safeStepName);
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        Path destination = screenshotDir.resolve(filename);
+
+        try {
+            Files.copy(screenshot.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("📸 Screenshot salvo: " + destination.toAbsolutePath());
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar screenshot: " + e.getMessage());
+        }
+    }
+
+    public static void resetScreenshotCounter() {
+        screenshotCounter = 1;
+    }
+
 	public void clickElementByXpath(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		By locator = By.xpath(xpath);
@@ -125,5 +167,10 @@ public class MetodosUtils {
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(element)));
 		String text = report.getText().trim();
 		Assert.assertEquals(expectedText, text);
+	}
+
+	public static boolean isElementVisible(WebDriver driver, By locator) {
+		List<WebElement> elements = driver.findElements(locator);
+		return elements.size() > 0 && elements.get(0).isDisplayed();
 	}
 }

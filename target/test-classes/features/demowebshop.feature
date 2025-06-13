@@ -1,6 +1,6 @@
 Feature: Funcionalidades do Demo Web Shop com dados externos
 
-  @all @registro-do-user
+  @all @registration
   Scenario: Registro de usuario com dados do banco
     Given que o usuario esta na pagina de registro
     When ele realiza o cadastro com dados vindos do banco
@@ -12,10 +12,10 @@ Feature: Funcionalidades do Demo Web Shop com dados externos
     When ele realiza login com os dados do banco
     Then o sistema deve exibir o resultado esperado
 
-  @all @busca @regressao @db
-  Scenario: Busca de produtos com termos do banco
+  @all @search
+  Scenario: Busca de produtos
     Given que o usuario esta na pagina inicial
-    When ele realiza uma busca com o termo vindo do banco
+    When ele realiza uma busca
     Then o sistema deve exibir os resultados correspondentes
 
   @all @carrinho @regressao @db

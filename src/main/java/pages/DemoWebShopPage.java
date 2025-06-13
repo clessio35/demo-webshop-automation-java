@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.javafaker.Faker;
 
 import config.DriverManager;
-import junit.framework.Assert;
+import junit.framework.*;
 import utils.MetodosUtils;
 
 public class DemoWebShopPage {
@@ -51,6 +51,7 @@ public class DemoWebShopPage {
     public void validateUserRegistration() {
     	System.out.println("validate user registration");
     	metodo.validateText("Your registration completed", "//div[contains(text(),'Your registration completed')]");
+    	MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate User registration");
     }
 
     public void accessLoginPage() {
@@ -64,19 +65,36 @@ public class DemoWebShopPage {
     	String password = MetodosUtils.readCell(1, "Password");
     	metodo.typeElement("Email", email);
     	metodo.typeElement("Password", password);
+    	MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "login");
     	metodo.clickElementByXpath("//input[@value='Log in']");
     }
 
 	@SuppressWarnings("deprecation")
 	public void validateLogin() {
 		System.out.println("validate Homepage");
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		    try {
-		        WebElement linkAccount = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/customer/info']")));
-		        Assert.assertTrue("Link 'customer info' deve estar visível", linkAccount.isDisplayed());
-		    } catch (TimeoutException e) {
-		        Assert.fail("Link 'customer info' não está visível na página após o tempo esperado");
-		    }
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		try {
+			WebElement linkAccount = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/customer/info']")));
+			Assert.assertTrue("Link 'customer info' deve estar visível", linkAccount.isDisplayed());
+		} catch (TimeoutException e) {
+			Assert.fail("Link 'customer info' não está visível na página após o tempo esperado");
+		}
+		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate Login");
+	}
+
+	public void searchItems() {
+		System.out.println("search itens");
+		metodo.typeElement("small-searchterms", "14.1-inch Laptop");
+		MetodosUtils.isElementVisible(driver, By.cssSelector("#ui-id-1"));
+		metodo.clickElementByXpath("//input[@class='button-1 search-box-button']");
+	}
+
+	public void validateResultsBySearch() {
+		System.out.println("validate results");
+		MetodosUtils.isElementVisible(driver, By.xpath("//h1[contains(text(),'Search')]"));
+		MetodosUtils.isElementVisible(driver, By.xpath("//h2[@class='product-title']"));
+		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate results");
 	}
 
 
