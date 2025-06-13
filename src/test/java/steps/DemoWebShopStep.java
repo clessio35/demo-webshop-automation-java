@@ -35,6 +35,8 @@ public class DemoWebShopStep {
 	
 	@Given("que o usuario esta na pagina de login")
 	public void que_o_usuario_esta_na_pagina_de_login() {
+		demo.accessRegisterPage();
+		demo.fillRegisterUser();
 	    demo.accessLoginPage();
 	}
 
@@ -51,6 +53,8 @@ public class DemoWebShopStep {
 
 	@Given("que o usuario esta na pagina inicial")
 	public void que_o_usuario_esta_na_pagina_inicial() {
+		demo.accessRegisterPage();
+		demo.fillRegisterUser();
 	    demo.accessLoginPage();
 	    demo.realizeLogin();
 	}
@@ -67,26 +71,25 @@ public class DemoWebShopStep {
 
 	@Given("que o usuario esta logado")
 	public void que_o_usuario_esta_logado() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		demo.accessRegisterPage();
+		demo.fillRegisterUser();
+	    demo.accessLoginPage();
+	    demo.realizeLogin();
 	}
 
 	@Given("esta na pagina de um produto vindo do banco")
 	public void esta_na_pagina_de_um_produto_vindo_do_banco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		demo.searchItems();
 	}
 
 	@When("ele adiciona o produto ao carrinho")
 	public void ele_adiciona_o_produto_ao_carrinho() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.addToCart();
 	}
 
 	@Then("o produto deve estar visivel no carrinho")
 	public void o_produto_deve_estar_visivel_no_carrinho() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		demo.validateCart();
 	}
 
 	@Given("que o usuario tem um produto no carrinho vindo do banco")

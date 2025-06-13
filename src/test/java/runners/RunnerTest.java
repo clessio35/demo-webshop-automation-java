@@ -4,11 +4,11 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class)  // JUnit 4
+@RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources/features",   
     glue = {"steps", "hooks"},                  
-    tags = "@search",                             
+    tags = "@cart",                             
     plugin = {                                 
         "pretty", 
         "html:target/cucumber-reports", 

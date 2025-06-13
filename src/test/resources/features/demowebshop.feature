@@ -18,7 +18,7 @@ Feature: Funcionalidades do Demo Web Shop com dados externos
     When ele realiza uma busca
     Then o sistema deve exibir os resultados correspondentes
 
-  @all @carrinho @regressao @db
+  @all @cart
   Scenario: Adicionar produto ao carrinho com dados do banco
     Given que o usuario esta logado
     And esta na pagina de um produto vindo do banco

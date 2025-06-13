@@ -39,7 +39,7 @@ public class MetodosUtils {
 	private static final String FILE_PATH = "src/main/resources/dadosUsuarios.xlsx";
 
 	// Salvar dados no Excel
-	public static void saveData(String firstName, String lastName, String email, String password) {
+	public static void saveData(String firstName, String lastName, String email, String password, String product) {
 		Workbook workbook = new XSSFWorkbook();
 		Sheet sheet = workbook.createSheet("Usuarios");
 
@@ -48,13 +48,15 @@ public class MetodosUtils {
 		header.createCell(1).setCellValue("LastName");
 		header.createCell(2).setCellValue("Email");
 		header.createCell(3).setCellValue("Password");
+		header.createCell(4).setCellValue("Product");
 
 		Row row = sheet.createRow(1);
 		row.createCell(0).setCellValue(firstName);
 		row.createCell(1).setCellValue(lastName);
 		row.createCell(2).setCellValue(email);
 		row.createCell(3).setCellValue(password);
-
+		row.createCell(4).setCellValue(product);
+		
 		try (FileOutputStream fileOut = new FileOutputStream(FILE_PATH)) {
 			workbook.write(fileOut);
 		} catch (IOException e) {

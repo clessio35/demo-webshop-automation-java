@@ -1,9 +1,11 @@
 package pages;
 
+import static org.junit.Assert.assertEquals;
+
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.javafaker.Faker;
 
 import config.DriverManager;
-import junit.framework.*;
 import utils.MetodosUtils;
 
 public class DemoWebShopPage {
@@ -44,8 +45,9 @@ public class DemoWebShopPage {
         metodo.typeElement("Email", email);
         metodo.typeElement("Password", password);
         metodo.typeElement("ConfirmPassword", password);
+        MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "fill user register");
         metodo.clickElementByXpath("//input[@id='register-button']");
-        MetodosUtils.saveData(firstName, lastName, email, password);
+        MetodosUtils.saveData(firstName, lastName, email, password, "");
     }
 
     public void validateUserRegistration() {
@@ -56,6 +58,7 @@ public class DemoWebShopPage {
 
     public void accessLoginPage() {
         System.out.println("Access login page");
+        metodo.clickElementByXpath("//a[contains(text(),'Log out')]");
         metodo.clickElementByXpath("//a[contains(text(),'Log in')]");
     }
     
@@ -69,23 +72,24 @@ public class DemoWebShopPage {
     	metodo.clickElementByXpath("//input[@value='Log in']");
     }
 
-	@SuppressWarnings("deprecation")
 	public void validateLogin() {
 		System.out.println("validate Homepage");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		try {
 			WebElement linkAccount = wait
-					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/customer/info']")));
-			Assert.assertTrue("Link 'customer info' deve estar visível", linkAccount.isDisplayed());
-		} catch (TimeoutException e) {
-			Assert.fail("Link 'customer info' não está visível na página após o tempo esperado");
-		}
+					.until(ExpectedConditions.visibilityOfElementLocated(
+							By.xpath("//a[@href='/customer/info']")));
+			if(linkAccount.isDisplayed()) {
+				assertEquals(linkAccount.getText().trim(), email);
+			}
+			
 		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate Login");
 	}
 
 	public void searchItems() {
 		System.out.println("search itens");
-		metodo.typeElement("small-searchterms", "14.1-inch Laptop");
+		String product = "14.1-inch Laptop";
+		MetodosUtils.saveData(firstName, lastName, email, password, product);
+		metodo.typeElement("small-searchterms", product);
 		MetodosUtils.isElementVisible(driver, By.cssSelector("#ui-id-1"));
 		metodo.clickElementByXpath("//input[@class='button-1 search-box-button']");
 	}
@@ -95,6 +99,29 @@ public class DemoWebShopPage {
 		MetodosUtils.isElementVisible(driver, By.xpath("//h1[contains(text(),'Search')]"));
 		MetodosUtils.isElementVisible(driver, By.xpath("//h2[@class='product-title']"));
 		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate results");
+	}
+
+	public void addToCart() {
+		System.out.println("Add to cart");
+		 List<WebElement> addToCart = driver.findElements(By.cssSelector("input[value='Add to cart']"));
+	        if (!addToCart.isEmpty()) {
+	        	addToCart.get(0).click();
+	            System.out.println("first button select");
+	        } else {
+	            System.out.println("not found");
+	        }
+		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Add to cart");
+	}
+
+	public void validateCart() {
+		System.out.println("validate cart");
+		MetodosUtils.isElementVisible(driver, By.id("bar-notification"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement text = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='bar-notification']")));
+			assertEquals("The product has been added to your shopping cart", text.getText().trim());
+		MetodosUtils.isElementVisible(driver, By.id("topcartlink"));
+		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate cart");
 	}
 
 
