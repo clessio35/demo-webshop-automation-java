@@ -92,22 +92,21 @@ public class DemoWebShopStep {
 		demo.validateCart();
 	}
 
-	@Given("que o usuario tem um produto no carrinho vindo do banco")
+	@Given("que o usuario tem um produto no carrinho")
 	public void que_o_usuario_tem_um_produto_no_carrinho_vindo_do_banco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		demo.searchItems();
+		demo.addToCart();
+	    demo.accessCart();
 	}
 
 	@When("ele acessa o carrinho e remove o produto")
 	public void ele_acessa_o_carrinho_e_remove_o_produto() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.removeProduct();
 	}
 
 	@Then("o carrinho nao deve conter mais o item")
 	public void o_carrinho_nao_deve_conter_mais_o_item() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.validateEmptyCart();
 	}
 
 	@Given("possui produtos no carrinho cadastrados no banco")

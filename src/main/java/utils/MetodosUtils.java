@@ -19,6 +19,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -130,13 +132,18 @@ public class MetodosUtils {
         screenshotCounter = 1;
     }
 
-	public void clickElementByXpath(String xpath) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		By locator = By.xpath(xpath);
-		WebElement elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		wait.until(ExpectedConditions.elementToBeClickable(locator));
-		elemento.click();
-	}
+    public void clickElementByXpath(String xpath) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        By locator = By.xpath(xpath);
+        WebElement elemento = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        try {
+            elemento.click();
+        } catch (ElementClickInterceptedException e) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", elemento);
+        }
+    }
+
 
 	public void clickElementById(String id) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

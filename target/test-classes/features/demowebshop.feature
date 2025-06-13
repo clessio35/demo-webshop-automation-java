@@ -25,9 +25,10 @@ Feature: Funcionalidades do Demo Web Shop com dados externos
     When ele adiciona o produto ao carrinho
     Then o produto deve estar visivel no carrinho
 
-  @all @carrinho @regressao @db
+  @all @remove
   Scenario: Remover produto do carrinho com dados do banco
-    Given que o usuario tem um produto no carrinho vindo do banco
+ 		Given que o usuario esta logado
+    And que o usuario tem um produto no carrinho
     When ele acessa o carrinho e remove o produto
     Then o carrinho nao deve conter mais o item
 

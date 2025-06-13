@@ -1,6 +1,11 @@
 package pages;
 
+import static config.DriverManager.getDriver;
 import static org.junit.Assert.assertEquals;
+import static utils.MetodosUtils.isElementVisible;
+import static utils.MetodosUtils.readCell;
+import static utils.MetodosUtils.saveData;
+import static utils.MetodosUtils.takeStepScreenshot;
 
 import java.time.Duration;
 import java.util.List;
@@ -17,6 +22,7 @@ import config.DriverManager;
 import utils.MetodosUtils;
 
 public class DemoWebShopPage {
+	
 
     WebDriver driver = DriverManager.getDriver();
     private MetodosUtils metodo;
@@ -45,15 +51,15 @@ public class DemoWebShopPage {
         metodo.typeElement("Email", email);
         metodo.typeElement("Password", password);
         metodo.typeElement("ConfirmPassword", password);
-        MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "fill user register");
+        takeStepScreenshot(DriverManager.getDriver(), "fill user register");
         metodo.clickElementByXpath("//input[@id='register-button']");
-        MetodosUtils.saveData(firstName, lastName, email, password, "");
+        saveData(firstName, lastName, email, password, "");
     }
 
     public void validateUserRegistration() {
     	System.out.println("validate user registration");
     	metodo.validateText("Your registration completed", "//div[contains(text(),'Your registration completed')]");
-    	MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate User registration");
+    	takeStepScreenshot(DriverManager.getDriver(), "Validate User registration");
     }
 
     public void accessLoginPage() {
@@ -64,11 +70,11 @@ public class DemoWebShopPage {
     
     public void realizeLogin() {
     	System.out.println("log in...");
-    	String email = MetodosUtils.readCell(1, "Email");
-    	String password = MetodosUtils.readCell(1, "Password");
+    	String email = readCell(1, "Email");
+    	String password = readCell(1, "Password");
     	metodo.typeElement("Email", email);
     	metodo.typeElement("Password", password);
-    	MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "login");
+    	takeStepScreenshot(DriverManager.getDriver(), "login");
     	metodo.clickElementByXpath("//input[@value='Log in']");
     }
 
@@ -82,23 +88,23 @@ public class DemoWebShopPage {
 				assertEquals(linkAccount.getText().trim(), email);
 			}
 			
-		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate Login");
+		takeStepScreenshot(DriverManager.getDriver(), "Validate Login");
 	}
 
 	public void searchItems() {
 		System.out.println("search itens");
 		String product = "14.1-inch Laptop";
-		MetodosUtils.saveData(firstName, lastName, email, password, product);
+		saveData(firstName, lastName, email, password, product);
 		metodo.typeElement("small-searchterms", product);
-		MetodosUtils.isElementVisible(driver, By.cssSelector("#ui-id-1"));
+		isElementVisible(driver, By.cssSelector("#ui-id-1"));
 		metodo.clickElementByXpath("//input[@class='button-1 search-box-button']");
 	}
 
 	public void validateResultsBySearch() {
 		System.out.println("validate results");
-		MetodosUtils.isElementVisible(driver, By.xpath("//h1[contains(text(),'Search')]"));
-		MetodosUtils.isElementVisible(driver, By.xpath("//h2[@class='product-title']"));
-		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate results");
+		isElementVisible(driver, By.xpath("//h1[contains(text(),'Search')]"));
+		isElementVisible(driver, By.xpath("//h2[@class='product-title']"));
+		takeStepScreenshot(DriverManager.getDriver(), "Validate results");
 	}
 
 	public void addToCart() {
@@ -110,18 +116,42 @@ public class DemoWebShopPage {
 	        } else {
 	            System.out.println("not found");
 	        }
-		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Add to cart");
+		takeStepScreenshot(DriverManager.getDriver(), "Add to cart");
 	}
 
 	public void validateCart() {
 		System.out.println("validate cart");
-		MetodosUtils.isElementVisible(driver, By.id("bar-notification"));
+		isElementVisible(driver, By.id("bar-notification"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement text = wait
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='bar-notification']")));
 			assertEquals("The product has been added to your shopping cart", text.getText().trim());
-		MetodosUtils.isElementVisible(driver, By.id("topcartlink"));
-		MetodosUtils.takeStepScreenshot(DriverManager.getDriver(), "Validate cart");
+		isElementVisible(driver, By.id("topcartlink"));
+		takeStepScreenshot(DriverManager.getDriver(), "Validate cart");
+	}
+
+	public void accessCart() {
+		System.out.println("access to cart");
+		isElementVisible(driver, By.xpath("//span[contains(text(),'Shopping cart')]"));
+		metodo.clickElementByXpath("//span[contains(text(),'Shopping cart')]");
+	}
+
+	public void removeProduct() {
+		System.out.println("remove product"); 
+		isElementVisible(driver, By.xpath("//h1[contains(text(),'Shopping cart')]"));
+		takeStepScreenshot(DriverManager.getDriver(), "Shopping cart");
+		metodo.clickElementByXpath("//input[@name='removefromcart']");
+		isElementVisible(driver, By.xpath("//input[@name='updatecart']"));
+		metodo.clickElementByXpath("//input[@name='updatecart']");
+	}
+
+	public void validateEmptyCart() {
+		System.out.println("Validate empty cart");
+		By element = By.xpath("//div[contains(text(),'Your Shopping Cart is empty!')]");
+		isElementVisible(driver, element);
+		WebElement el = driver.findElement(element);
+		assertEquals("Your Shopping Cart is empty!", el.getText().trim());
+		takeStepScreenshot(getDriver(), "cart is empty!");
 	}
 
 
