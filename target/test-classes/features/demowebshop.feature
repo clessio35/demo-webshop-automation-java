@@ -32,11 +32,11 @@ Feature: Funcionalidades do Demo Web Shop com dados externos
     When ele acessa o carrinho e remove o produto
     Then o carrinho nao deve conter mais o item
 
-  @all @compra @integracao @db
+  @all @finalize
   Scenario: Finalizar compra com dados do banco
     Given que o usuario esta logado
-    And possui produtos no carrinho cadastrados no banco
-    When ele realiza o checkout com os dados do banco
+    And que o usuario tem um produto no carrinho
+    When ele realiza o checkout
     Then o sistema deve confirmar a compra corretamente
 
   @all @formulario @validacao @db

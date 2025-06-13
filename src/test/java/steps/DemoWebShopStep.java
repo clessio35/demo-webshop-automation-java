@@ -109,22 +109,14 @@ public class DemoWebShopStep {
 	    demo.validateEmptyCart();
 	}
 
-	@Given("possui produtos no carrinho cadastrados no banco")
-	public void possui_produtos_no_carrinho_cadastrados_no_banco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@When("ele realiza o checkout com os dados do banco")
+	@When("ele realiza o checkout")
 	public void ele_realiza_o_checkout_com_os_dados_do_banco() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.realizeCheckout();
 	}
 
 	@Then("o sistema deve confirmar a compra corretamente")
 	public void o_sistema_deve_confirmar_a_compra_corretamente() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    demo.validateOrderProcessed();
 	}
 
 	@Given("que o usuario esta na pagina de contato")

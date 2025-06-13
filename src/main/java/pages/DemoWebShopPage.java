@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.github.javafaker.Faker;
@@ -37,7 +38,12 @@ public class DemoWebShopPage {
     String lastName = faker.name().lastName();
     String email = faker.internet().emailAddress();
     String password = faker.internet().password(8, 12);
-    
+    String city = faker.address().cityName();
+    String address = faker.address().streetAddress();
+    String zipCode = faker.address().zipCode();
+    String phone = faker.phoneNumber().cellPhone();
+    String cardNumber = "4111111111111111";
+    String ccv = faker.business().creditCardExpiry();
     public void accessRegisterPage() {
        System.out.println("access page register");
        metodo.clickElementByXpath("//a[contains(text(),'Register')]");
@@ -153,6 +159,87 @@ public class DemoWebShopPage {
 		assertEquals("Your Shopping Cart is empty!", el.getText().trim());
 		takeStepScreenshot(getDriver(), "cart is empty!");
 	}
+	
+	public void billingAddress() {
+		System.out.println("billing address");
+		isElementVisible(getDriver(), By.id("co-billing-form"));
+		WebElement countrySelect = driver.findElement(By.xpath("//select[@id='BillingNewAddress_CountryId']"));
+		Select select = new Select(countrySelect);
+		select.selectByVisibleText("Brazil");
+		metodo.typeElement("BillingNewAddress_City", city);
+		metodo.typeElement("BillingNewAddress_Address1", address);
+		metodo.typeElement("BillingNewAddress_ZipPostalCode", zipCode);
+		metodo.typeElement("BillingNewAddress_PhoneNumber", phone);
+		takeStepScreenshot(getDriver(), "billing address");
+		metodo.clickElementByXpath("//input[@class='button-1 new-address-next-step-button']");
+	}
+	public void shippingAddress() {
+		System.out.println("shipping address");
+		takeStepScreenshot(getDriver(), "shipping address");
+		isElementVisible(getDriver(), By.id("PickUpInStore"));
+		metodo.clickElementById("PickUpInStore");
+		List<WebElement> btn = driver.findElements(By.cssSelector("input[value='Continue']"));
+        if (!btn.isEmpty()) {
+        	btn.get(1).click();
+            System.out.println("second button select");
+        } else {
+            System.out.println("not found");
+        }
+	}
+	public void paymentMethod() {
+		System.out.println("payment method");
+		isElementVisible(getDriver(), By.id("checkout-step-payment-method"));
+		metodo.clickElementById("paymentmethod_2");
+		takeStepScreenshot(getDriver(), "payment method");
+		metodo.clickElementByXpath("//input[@class='button-1 payment-method-next-step-button']");
+	}
+	public void paymentInformation() {
+		System.out.println("payment information");
+		isElementVisible(getDriver(), By.id("checkout-step-payment-info"));
+		metodo.typeElement("CardholderName", firstName);
+		metodo.typeElement("CardNumber", cardNumber);
+		WebElement month = driver.findElement(By.id("ExpireMonth"));
+		Select selectMonth = new Select(month);
+		selectMonth.selectByVisibleText("12");
+		WebElement year = driver.findElement(By.id("ExpireYear"));
+		Select selectYear = new Select(year);
+		selectYear.selectByVisibleText("2036");
+		metodo.typeElement("CardCode", ccv);
+		takeStepScreenshot(getDriver(), "payment information");
+		metodo.clickElementByXpath("//input[@class='button-1 payment-info-next-step-button']");
+	}
+	public void confirmOrder() {
+		System.out.println("confirm order");
+		isElementVisible(getDriver(), By.id("checkout-step-confirm-order"));
+		isElementVisible(getDriver(), By.xpath("//th[@class='cart-header-row']"));
+		takeStepScreenshot(getDriver(), "confirm order");
+		metodo.clickElementByXpath("//input[@class='button-1 confirm-order-next-step-button']");
+	}
+
+	public void realizeCheckout() {
+		System.out.println("realize checkout");
+		isElementVisible(driver, By.id("termsofservice"));
+		metodo.clickElementById("termsofservice");
+		isElementVisible(driver, By.id("checkout"));
+		metodo.clickElementById("checkout");
+		billingAddress();
+		shippingAddress();
+		paymentMethod();
+		paymentInformation();
+		confirmOrder();
+	}
+	
+	public void validateOrderProcessed() {
+	    System.out.println("validate order");
+	    By element = By.xpath("//strong[contains(text(),'Your order has been successfully processed!')]");
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+	    String actualText = el.getText().trim().replaceAll("\\s+", " ");
+	    System.out.println("Texto real encontrado: '" + actualText + "'");
+	    assertEquals("Your order has been successfully processed!", actualText);
+	}
+
+
 
 
 }
