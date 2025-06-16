@@ -49,8 +49,8 @@ Automatizar testes de interface web com foco em:
 ### Comando de execução
 
 ```bash
-
 mvn clean test
+
 
 ```
 
@@ -65,8 +65,10 @@ mvn clean test
 
 ### 📸 Exemplo de Job no Jenkins
 
-```md
+### 📸 Exemplo de Job no Jenkins
+
 ![Jenkins Job](https://github.com/clessio35/demo-webshop-automation-java/blob/main/images/jenkins-job-demo-webshop.png?raw=true)
+
 
 ```
 
