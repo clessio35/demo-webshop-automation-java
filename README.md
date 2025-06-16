@@ -49,7 +49,9 @@ Automatizar testes de interface web com foco em:
 ### Comando de execução
 
 ```bash
+
 mvn clean test
+
 ```
 
 > Os testes são executados via `JUnit` com os arquivos de runner que seguem o padrão `Run*.java`.
