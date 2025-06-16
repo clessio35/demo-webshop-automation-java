@@ -24,7 +24,7 @@ Automatizar testes de interface web com foco em:
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia               | Finalidade                                              |
+| Tecnologia               | Finalidade                                             |
 |--------------------------|--------------------------------------------------------|
 | Java 17                  | Linguagem base                                         |
 | Maven                    | Gerenciador de dependências                            |
@@ -48,15 +48,11 @@ Automatizar testes de interface web com foco em:
 
 ### Comando de execução
 
-```bash
+```no terminal 'bash'
+
 mvn clean test
 
-
 ```
-
-> Os testes são executados via `JUnit` com os arquivos de runner que seguem o padrão `Run*.java`.
-
----
 
 ## ⚙️ Integração Contínua
 
@@ -65,14 +61,7 @@ mvn clean test
 
 ### 📸 Exemplo de Job no Jenkins
 
-### 📸 Exemplo de Job no Jenkins
-
 ![Jenkins Job](https://github.com/clessio35/demo-webshop-automation-java/blob/main/images/jenkins-job-demo-webshop.png?raw=true)
-
-
-```
-
----
 
 ## 📌 Status do Projeto
 
