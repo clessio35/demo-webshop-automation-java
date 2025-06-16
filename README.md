@@ -68,7 +68,6 @@ mvn clean test
 ```md
 ![Jenkins Job](https://github.com/clessio35/demo-webshop-automation-java/blob/main/images/jenkins-job-demo-webshop.png?raw=true)
 
-
 ```
 
 ---
