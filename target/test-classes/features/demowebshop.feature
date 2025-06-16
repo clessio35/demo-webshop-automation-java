@@ -39,21 +39,3 @@ Feature: Funcionalidades do Demo Web Shop com dados externos
     When ele realiza o checkout
     Then o sistema deve confirmar a compra corretamente
 
-  @all @formulario @validacao @db
-  Scenario: Enviar formulario de contato com dados do banco
-    Given que o usuario esta na pagina de contato
-    When ele preenche o formulario com os dados do banco
-    And clica em "Enviar"
-    Then o sistema deve apresentar a resposta esperada
-
-  @all @recuperacao @validacao @db
-  Scenario: Recuperar senha com e-mail vindo do banco
-    Given que o usuario esta na pagina de login
-    When ele solicita recuperacao de senha com e-mail vindo do banco
-    Then o sistema deve responder de forma adequada
-
-  @all @performance
-  Scenario: Validar tempo de carregamento da pagina inicial
-    Given que o usuario acessa a URL do site
-    When a pagina inicial termina de carregar
-    Then o tempo total deve ser menor que o limite definido

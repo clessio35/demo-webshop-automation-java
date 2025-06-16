@@ -1,7 +1,9 @@
 package config;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,12 +16,19 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver",
-                "C:\\workspace\\workspace-eclipse\\demo-web-shop-automation-java\\drivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+
+            if (Boolean.parseBoolean(System.getProperty("headless", "false"))) {
+                options.addArguments("--headless");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--window-size=1920,1080");
+            }
+
+            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
-
             driver.get(getBaseUrl());
         }
         return driver;
