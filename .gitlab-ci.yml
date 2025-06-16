@@ -1,14 +1,12 @@
+image: selenium/standalone-chrome:latest
+
 stages:
   - test
 
-variables:
-  MAVEN_CLI_OPTS: "-B -DskipTests=false"
-
 test:
   stage: test
-  image: maven:3.9.6-eclipse-temurin-17
   script:
-    - mvn clean test $MAVEN_CLI_OPTS
+    - mvn clean test
   artifacts:
     when: always
     reports:
@@ -17,5 +15,3 @@ test:
       - target/surefire-reports/
   only:
     - main
-    - master
-    - merge_requests
