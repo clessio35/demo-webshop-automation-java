@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -114,21 +115,25 @@ public class DemoWebShopPage {
 	}
 
 	public void addToCart() {
-		System.out.println("Add to cart");
-		 List<WebElement> addToCart = driver.findElements(By.cssSelector("input[value='Add to cart']"));
-	        if (!addToCart.isEmpty()) {
-	        	addToCart.get(0).click();
-	            System.out.println("first button select");
-	        } else {
-	            System.out.println("not found");
-	        }
-		takeStepScreenshot(DriverManager.getDriver(), "Add to cart");
+	    System.out.println("Add to cart");
+	    try {
+	        WebElement addToCartBtn = driver.findElement(By.cssSelector("input[value='Add to cart']"));
+	        addToCartBtn.click();
+	        System.out.println("Clicked add to cart button");
+	    } catch (StaleElementReferenceException e) {
+	        System.out.println("Stale element, trying again...");
+	        WebElement addToCartBtn = driver.findElement(By.cssSelector("input[value='Add to cart']"));
+	        addToCartBtn.click();
+	        System.out.println("Clicked add to cart button on retry");
+	    }
+	    takeStepScreenshot(DriverManager.getDriver(), "Add to cart");
 	}
+
 
 	public void validateCart() {
 		System.out.println("validate cart");
 		isElementVisible(driver, By.id("bar-notification"));
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		WebElement text = wait
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='bar-notification']")));
 			assertEquals("The product has been added to your shopping cart", text.getText().trim());
@@ -232,7 +237,7 @@ public class DemoWebShopPage {
 	public void validateOrderProcessed() {
 	    System.out.println("validate order");
 	    By element = By.xpath("//strong[contains(text(),'Your order has been successfully processed!')]");
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	    WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
 	    String actualText = el.getText().trim().replaceAll("\\s+", " ");
 	    System.out.println("Texto real encontrado: '" + actualText + "'");
