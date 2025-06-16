@@ -26,15 +26,17 @@ public class DriverManager {
                 options.addArguments("--window-size=1920,1080");
             }
 
-            // Detecta se está rodando localmente (Windows) ou CI (Linux)
             String osName = System.getProperty("os.name").toLowerCase();
 
             if (osName.contains("win")) {
-                // Windows local: usa chromedriver local (exemplo: drivers/chromedriver.exe)
+                // Windows local: usar chromedriver local
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
             } else {
-                // CI Linux: usa WebDriverManager para baixar driver compatível
-                WebDriverManager.chromedriver().setup();
+                // Linux CI: usar WebDriverManager para baixar o driver certo
+                WebDriverManager.chromedriver()
+                    // Opcional: se precisar fixar a versão do driver para casar com Chrome no CI
+                    // .driverVersion("137.0.7151.41")
+                    .setup();
             }
 
             driver = new ChromeDriver(options);
