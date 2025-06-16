@@ -66,7 +66,8 @@ mvn clean test
 ### 📸 Exemplo de Job no Jenkins
 
 ```md
-![Jenkins Job](./images/jenkins-job-demo-webshop.png)
+![Jenkins Job](https://github.com/clessio35/demo-webshop-automation-java/blob/main/images/jenkins-job-demo-webshop.png?raw=true)
+
 
 ```
 
