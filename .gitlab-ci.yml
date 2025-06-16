@@ -1,7 +1,20 @@
-image: selenium/standalone-chrome:latest
+image: maven:3.9.6-eclipse-temurin-17
 
 stages:
   - test
+
+before_script:
+  # Instala o wget para baixar o Chrome
+  - apt-get update && apt-get install -y wget unzip
+  # Instala Chrome estável
+  - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+  - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+  - apt-get update && apt-get install -y google-chrome-stable
+  # Baixa o chromedriver compatível com a versão do Chrome
+  - CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+  - wget -q "https://chromedriver.storage.googleapis.com/${CHROME_VERSION}/chromedriver_linux64.zip"
+  - unzip chromedriver_linux64.zip -d /usr/local/bin/
+  - chmod +x /usr/local/bin/chromedriver
 
 test:
   stage: test
@@ -13,5 +26,3 @@ test:
       junit: target/surefire-reports/*.xml
     paths:
       - target/surefire-reports/
-  only:
-    - main
