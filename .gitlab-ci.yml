@@ -4,17 +4,14 @@ stages:
   - test
 
 before_script:
-  - apt-get update && apt-get install -y wget unzip gnupg curl
+  - apt-get update && apt-get install -y wget unzip gnupg curl xvfb
   - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
   - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
   - apt-get update && apt-get install -y google-chrome-stable
-
-  # Pega a versão completa do Chrome (ex: 114.0.5735.198)
-  - CHROME_VERSION_FULL=$(google-chrome --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
-  # Extrai os 3 primeiros números (major.minor.build) (ex: 114.0.5735)
-  - CHROME_VERSION=$(echo "$CHROME_VERSION_FULL" | cut -d '.' -f1-3)
-  # Baixa a versão correspondente do ChromeDriver
-  - CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}")
+  - sleep 10
+  - CHROME_VERSION_FULL=$(google-chrome --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+  - CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION_FULL}")
+  - if [ -z "$CHROMEDRIVER_VERSION" ]; then CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"); fi
   - wget -q "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
   - unzip chromedriver_linux64.zip -d /usr/local/bin/
   - chmod +x /usr/local/bin/chromedriver
@@ -22,8 +19,8 @@ before_script:
 test:
   stage: test
   script:
-    - mvn clean test || true   # não para mesmo se falhar
-    - cat target/surefire-reports/*.txt || true  # mostra logs legíveis
+    - xvfb-run -a mvn clean test || true
+    - cat target/surefire-reports/*.txt || true
   artifacts:
     when: always
     reports:
