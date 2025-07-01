@@ -4,21 +4,34 @@ stages:
   - test
 
 before_script:
+  # Instala dependências necessárias
   - apt-get update && apt-get install -y wget unzip gnupg curl xvfb
+  # Adiciona o repositório do Google Chrome
   - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
   - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
   - apt-get update && apt-get install -y google-chrome-stable
-  - CHROME_VERSION_FULL=$(google-chrome --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+
+  # Captura a versão do Google Chrome instalada (formato com 3 partes: 118.0.5993)
+  - CHROME_VERSION_FULL=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+  - echo "Versão do Chrome instalada: $CHROME_VERSION_FULL"
+
+  # Tenta baixar o ChromeDriver compatível com a versão do Chrome
   - CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION_FULL}")
   - if [ -z "$CHROMEDRIVER_VERSION" ]; then CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"); fi
+  - echo "Versão do ChromeDriver para baixar: $CHROMEDRIVER_VERSION"
+
+  # Faz o download e instala o ChromeDriver
   - wget -q "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
-  - unzip chromedriver_linux64.zip -d /usr/local/bin/
-  - chmod +x /usr/local/bin/chromedriver
+  - unzip chromedriver_linux64.zip
+  - chmod +x chromedriver
+  - mv chromedriver /usr/local/bin/
+  - rm chromedriver_linux64.zip
 
 test:
   stage: test
   script:
-    - xvfb-run -a mvn clean test || true
+    # Executa os testes com suporte a interface gráfica virtual (necessário para o Chrome headless)
+    - xvfb-run -a mvn clean test
     - cat target/surefire-reports/*.txt || true
   artifacts:
     when: always
