@@ -1,21 +1,21 @@
-# Automação de Testes - Demo Web Shop
+# 🧪 Automação de Testes - Automation Exercise
 
-Projeto de automação de testes end-to-end de um e-commerce, o site: [Demo Web Shop](https://demowebshop.tricentis.com/) utilizando **Java 17**,
-**Selenium WebDriver**, **Cucumber** e **JUnit**.  
+Projeto de automação de testes do site [Automation Exercise](https://automationexercise.com/) utilizando **Java 17**,
+**Selenium WebDriver**, **Cucumber**, **JUnit** e para a parte de API, o **RestAssured**.
 
-O projeto também faz uso de **Apache POI** para leitura/escrita de planilhas Excel e **Java Faker** para geração de dados dinâmicos.
+O projeto também utiliza **Apache POI** para leitura/escrita de planilhas Excel e **Java Faker** para geração de dados dinâmicos.
 
-🔗 Repositório: [github.com/clessio35/demo-webshop-automation-java](https://github.com/clessio35/demo-webshop-automation-java)
+🔗 Repositório: [github.com/clessio35/demo-web-api-automation-java](https://github.com/clessio35/demo-web-api-automation-java)
 
 ---
 
 ## 🚀 Objetivo
 
-Automatizar testes de interface web com foco em:
+Automatizar testes de interface e API com foco em:
 
-- ✅ Testes funcionais automatizados com Selenium
 - ✅ Escrita de cenários em linguagem Gherkin com Cucumber
-- ✅ Execução com JUnit 4 e Cucumber Runner
+- ✅ Testes funcionais automatizados com Selenium
+- ✅ Reports com Extent Reports e Cucumber Reports
 - ✅ Geração e leitura de dados com Apache POI (Excel)
 - ✅ Geração de dados dinâmicos com Java Faker
 - ✅ Execução automatizada via GitHub Actions e Jenkins
@@ -29,28 +29,31 @@ Automatizar testes de interface web com foco em:
 | Java 17                  | Linguagem base                                         |
 | Maven                    | Gerenciador de dependências                            |
 | Selenium WebDriver 4.18  | Automação de testes web                                |
-| Cucumber 7.12.1          | Testes BDD com escrita de cenários em Gherkin          |
-| JUnit 4.13.2             | Framework de execução dos testes                       |
+| Cucumber 7.12.1          | Testes BDD com cenários em Gherkin                     |
+| JUnit 4.13.2             | Execução dos testes                                    |
 | Apache POI 5.2.5         | Leitura e escrita de arquivos Excel                    |
-| Java Faker 1.0.2         | Geração de dados dinâmicos                             |
-| WebDriverManager 5.4.1   | Gerenciamento automático dos drivers dos navegadores   |
+| Java Faker 1.0.2         | Geração de dados aleatórios                            |
+| WebDriverManager 5.4.1   | Gerenciamento automático dos drivers                   |
+| RestAssured 5.2.0        | Testes de API com chamadas HTTP                        |
 
 ---
 
 ## ▶️ Como Executar Localmente
 
-### Pré-requisitos
+### ✅ Pré-requisitos
 
 - Java 17 instalado  
 - Maven 3.8+ instalado  
-- Navegador (ex: Chrome)  
-- Internet para download automático do WebDriver
+- Navegador (ex: Google Chrome)  
+- Acesso à internet para baixar as dependências e drivers
 
-### Comando de execução
+### ⬇️ Após clonar o projeto:
 
-```no terminal 'bash'
+Abra um terminal e execute o seguinte comando para rodar os testes:
 
+```bash
 mvn clean test
+
 
 ```
 

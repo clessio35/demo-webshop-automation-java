@@ -54,7 +54,8 @@ public class WebAutomationExercisePage {
 	}
 
 	public void accessSignupAndLogin() {
-		// TODO Auto-generated method stub
+		System.out.println("access signup");
+		isElementVisible(driver, By.xpath("//a[normalize-space()='Signup / Login']"));
 		
 	}
 
