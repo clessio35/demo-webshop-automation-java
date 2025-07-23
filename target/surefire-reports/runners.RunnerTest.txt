@@ -1,4 +1,19 @@
 -------------------------------------------------------------------------------
 Test set: runners.RunnerTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.649 s - in runners.RunnerTest
+Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 112.433 s <<< FAILURE! - in runners.RunnerTest
+Funcionalidades do Demo Web Shop com dados externos.Adicionar produto ao carrinho com dados do banco  Time elapsed: 28.803 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for element to be clickable: By.xpath: //a[contains(text(),'Log out')] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.158, chrome: {chromedriverVersion: 137.0.7151.70 (dfa4dc56b2ab..., userDataDir: C:\Users\cless\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53206}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53206/devtoo..., se:cdpVersion: 138.0.7204.158, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 27ec9c29c3f4f91caf3f701de972a028
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at utils.MetodosUtils.clickElementByXpath(MetodosUtils.java:138)
+	at pages.DemoWebShopPage.accessLoginPage(DemoWebShopPage.java:74)
+	at steps.DemoWebShopStep.que_o_usuario_esta_logado(DemoWebShopStep.java:76)
+	at ✽.que o usuario esta logado(file:///C:/workspace/workspace-eclipse/demo-web-shop-automation-java/src/test/resources/features/demowebshop.feature:23)
+

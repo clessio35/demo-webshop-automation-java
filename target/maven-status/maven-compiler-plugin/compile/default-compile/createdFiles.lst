@@ -1,4 +1,4 @@
-utils\MetodosUtils.class
-config\DriverManager.class
 pages\DemoWebShopPage.class
 utils\TestContext.class
+utils\MetodosUtils.class
+config\DriverManager.class
