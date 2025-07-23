@@ -35,20 +35,17 @@ public class WebAutomationExerciseStep {
 
     @When("ele preenche os dados obrigatorios com valores do banco")
     public void ele_preenche_os_dados_obrigatorios_com_valores_do_banco() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        web.fillRegistrationForm();
     }
 
     @When("confirma o cadastro")
     public void confirma_o_cadastro() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        web.clickBtnCreateAccount();
     }
 
     @Then("o sistema deve exibir a mensagem {string}")
-    public void o_sistema_deve_exibir_a_mensagem(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void o_sistema_deve_exibir_a_mensagem(String msg) {
+        web.validateAccountCreated(msg);
     }
 
     @When("ele adiciona um produto ao carrinho pela pagina de produtos")

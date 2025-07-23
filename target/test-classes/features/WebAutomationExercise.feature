@@ -11,7 +11,11 @@ Feature: Funcionalidades do site Automation Exercise
     And que o usuario esta na pagina de Signup/Login
     When ele preenche os dados obrigatorios com valores do banco
     And confirma o cadastro
-    Then o sistema deve exibir a mensagem "ACCOUNT CREATED!"
+    Then o sistema deve exibir a mensagem "<msg>"
+     Examples:
+      | msg  					 |
+      |Account Created!| 
+    
 
   @all @login @web
   Scenario: Login com usuario previamente cadastrado
