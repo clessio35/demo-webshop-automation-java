@@ -227,4 +227,21 @@ public class MetodosUtils {
         List<WebElement> elements = driver.findElements(locator);
         return elements.size() > 0 && elements.get(0).isDisplayed();
     }
+    
+    
+    public static double calculateDiscountedTotal(List<Double> products, double discount, double tax) {
+        if (products == null || products.isEmpty()) return 0.0;
+        if (discount < 0 || tax < 0) throw new IllegalArgumentException("Desconto ou imposto inválido");
+
+        double total = 0.0;
+        for (double p : products) {
+            if (p < 0) throw new IllegalArgumentException("Preço inválido");
+            total += p;
+        }
+
+        total -= total * (discount / 100);
+        total += total * (tax / 100);
+
+        return Math.round(total * 100.0) / 100.0;
+    }
 }

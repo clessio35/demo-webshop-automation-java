@@ -23,11 +23,10 @@ import utils.MetodosUtils;
 public class WebAutomationExercisePage {
 	
 
-    WebDriver driver = DriverManager.getDriver();
+    WebDriver driver;
     private MetodosUtils metodo;
     
     
-
     public WebAutomationExercisePage(WebDriver driver) {
         this.driver = driver;
         this.metodo = new MetodosUtils(driver);

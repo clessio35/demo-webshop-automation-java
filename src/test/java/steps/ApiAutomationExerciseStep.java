@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ApiAutomationExerciseService;
 
-public class ApiAutomationExerciseSteps {
+public class ApiAutomationExerciseStep {
 	
 	ApiAutomationExerciseService api = new ApiAutomationExerciseService();
 	

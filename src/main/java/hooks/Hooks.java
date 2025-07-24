@@ -22,15 +22,18 @@ public class Hooks {
         MetodosUtils.resetScreenshotCounter();
 
         ExtentTest test = extent.createTest(scenario.getName());
-        TestContext.setExtentTest(test); // Set no contexto global
+        TestContext.setExtentTest(test);
 
         boolean isWeb = scenario.getSourceTagNames().stream()
-                         .anyMatch(tag -> tag.equalsIgnoreCase("@web"));
-
+            .map(String::trim)
+            .map(String::toLowerCase)
+            .anyMatch(tag -> tag.equals("@web"));
         if (isWeb) {
-            DriverManager.getDriver();
+            DriverManager.getDriver();           // Cria driver mas não abre URL
+            DriverManager.navigateToBaseUrl();   // Navega para a URL base explicitamente
         }
     }
+
 
     @After
     public void tearDown(Scenario scenario) {

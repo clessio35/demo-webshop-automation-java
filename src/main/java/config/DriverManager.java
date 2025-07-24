@@ -18,7 +18,6 @@ public class DriverManager {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
 
-            // Headless para CI via flag -Dheadless=true
             if (Boolean.parseBoolean(System.getProperty("headless", "false"))) {
                 options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
@@ -30,23 +29,17 @@ public class DriverManager {
             System.out.println("[DriverManager] OS detectado: " + osName);
 
             if (osName.contains("win")) {
-                // Windows local: chromedriver.exe local
                 System.out.println("[DriverManager] Usando chromedriver local para Windows");
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
             } else {
-                // Linux (CI): tenta baixar chromedriver compatível automaticamente
                 System.out.println("[DriverManager] Usando WebDriverManager para baixar ChromeDriver no CI");
-
                 try {
-                    // Forçar a versão para evitar erros de incompatibilidade
-                    // Aqui tentamos pegar a versão do Chrome instalada (melhor prática)
                     String chromeVersion = getChromeVersion();
                     if (chromeVersion != null) {
                         System.out.println("[DriverManager] Versão do Chrome no CI: " + chromeVersion);
                         String majorVersion = chromeVersion.split("\\.")[0];
                         WebDriverManager.chromedriver().driverVersion(getCompatibleDriverVersion(majorVersion)).setup();
                     } else {
-                        // fallback simples: baixa driver mais recente
                         WebDriverManager.chromedriver().setup();
                     }
                 } catch (Exception e) {
@@ -57,10 +50,20 @@ public class DriverManager {
 
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
-            driver.get(getBaseUrl());
+
+            // Remove este comando daqui
+            // driver.get(getBaseUrl());
         }
         return driver;
     }
+
+    public static void navigateToBaseUrl() {
+        if (driver == null) {
+            throw new IllegalStateException("Driver não inicializado. Chame getDriver() antes.");
+        }
+        driver.get(getBaseUrl());
+    }
+
 
     public static void quitDriver() {
         if (driver != null) {
