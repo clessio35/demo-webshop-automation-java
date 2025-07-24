@@ -55,15 +55,28 @@ public class ApiAutomationExerciseService {
 	public void sendRequestPOSTMethod(String endpoint) {
 		System.out.println("send post request");
 		response = RestAssured.given().log().body()
-			.contentType(ContentType.JSON).body(payload())
-			.post(endpoint).then().statusCode(200).extract().response();
+			.contentType(ContentType.JSON).body(payload().toString())
+			.post(endpoint);
 		System.out.println("Status code: " + response.getStatusCode());
 	}
 
 	public void validateFullResult(String result) {
 		System.out.println("validate result");
+		System.out.println("Response body: " + response.asString());
+		
+		String responseBody = response.asString();
+		if (responseBody.contains("\"responseCode\": 400") && 
+		       responseBody.contains("search_product parameter is missing")) {
+			System.out.println();
+		    throw new AssertionError("request error: -> 'search_product' possible bug.");
+		}
+		System.out.println();
 		JsonPath json = response.jsonPath();
 		List<Map<String, Object>> products = json.getList("products");
+		
+		if (products == null) {
+	        throw new AssertionError("Response JSON não contém a lista 'products'");
+	    }
 		 for (Map<String, Object> product : products) {
 			 String name = (String) product.get("name");
 		     if (name == null) continue;

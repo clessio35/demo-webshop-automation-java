@@ -16,7 +16,7 @@ Feature: Testes de API - Automation Exercise
     Then eu valido que todos os resultados contêm "<result>"
     Examples:
       | url                            | endpoint           |result |
-      | https://automationexercise.com | /api/searchProduct |Tshirt |
+      | https://automationexercise.com | /api/searchProduct |tshirt |
 
  @search-product-time @all @api
   Scenario: Pesquisar um produto e validar resultados contendo texto de busca
