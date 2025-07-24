@@ -162,6 +162,40 @@ public class WebAutomationExercisePage {
 		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
 	}
 
+	public void accessProducts() {
+		System.out.println("products");
+		isElementVisible(driver, By.xpath("//a[@href='/products']"));
+		metodo.clickElementByXpath("//a[@href='/products']");
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	String description = "";
+	public void addProduct() {
+		System.out.println("add products");
+		isElementVisible(driver, By.xpath("(//img[@alt='ecommerce website products'])[1]"));
+		metodo.clickElementByXpath("(//a[contains(text(),'View Product')])[1]");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebElement el = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[class='product-information'] h2")));
+		description = el.getText().toString().trim();
+		metodo.clickElementByXpath("//button[normalize-space()='Add to cart']");
+		WebElement cart = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h4[normalize-space()='Added!']")));
+		assertEquals("Added!", cart.getText().trim());
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	public void accessCartByProduct() {
+		System.out.println("access cart by product added");
+		isElementVisible(driver, By.xpath("//u[normalize-space()='View Cart']"));
+		metodo.clickElementByXpath("//u[normalize-space()='View Cart']");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebElement el = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='cart_description']//h4")));
+		assertEquals(description, el.getText().trim());
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
 	
 
 

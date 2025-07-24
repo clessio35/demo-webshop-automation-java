@@ -65,20 +65,19 @@ public class WebAutomationExerciseStep {
     
     @Given("que o usuario esta logado")
     public void que_o_usuario_esta_logado() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    	web.accessSignupAndLogin();
+    	web.realizeLogin();
     }
 
     @When("ele adiciona um produto ao carrinho pela pagina de produtos")
     public void ele_adiciona_um_produto_ao_carrinho_pela_pagina_de_produtos() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        web.accessProducts();
+        web.addProduct();
     }
 
     @Then("o carrinho deve conter o produto adicionado com o nome correto")
     public void o_carrinho_deve_conter_o_produto_adicionado_com_o_nome_correto() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        web.accessCartByProduct();
     }
 
     @Given("que o usuario possui um produto no carrinho")
