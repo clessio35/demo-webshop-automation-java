@@ -196,6 +196,23 @@ public class WebAutomationExercisePage {
 		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
 	}
 
+	public void removeProduct() {
+		System.out.println("remove");
+		isElementVisible(driver, By.xpath("//a[@class='cart_quantity_delete']"));
+		metodo.clickElementByXpath("//a[@class='cart_quantity_delete']");
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	public void validateRemoveProductMsg(String msg) {
+		System.out.println("validate remove product");
+		isElementVisible(driver, By.xpath("//b[normalize-space()='Cart is empty!']"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebElement el = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//b[normalize-space()='Cart is empty!']")));
+		Assert.assertEquals(msg, el.getText().trim());
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
 	
 
 

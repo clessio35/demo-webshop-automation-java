@@ -82,14 +82,21 @@ public class WebAutomationExerciseStep {
 
     @Given("que o usuario possui um produto no carrinho")
     public void que_o_usuario_possui_um_produto_no_carrinho() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+		web.accessSignupAndLogin();
+		web.realizeLogin();
+		web.accessProducts();
+		web.addProduct();
+		web.accessCartByProduct();
     }
 
     @When("ele remove o produto do carrinho")
     public void ele_remove_o_produto_do_carrinho() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        web.removeProduct();
+    }
+    
+    @Then("o sistema deve exibir a mensagem de exclusao {string}")
+    public void o_sistema_deve_exibir_a_mensagem_de_exclusao(String msg) {
+        web.validateRemoveProductMsg(msg);
     }
 
     @Given("que o usuario esta logado na aplicacao")

@@ -36,7 +36,10 @@ Feature: Funcionalidades do site Automation Exercise
     Given que o usuario acessa o site
     And que o usuario possui um produto no carrinho
     When ele remove o produto do carrinho
-    Then o sistema deve exibir a mensagem "Cart is empty!"
+    Then o sistema deve exibir a mensagem de exclusao "<msg>"
+     Examples:
+      | msg  					 |
+      |Cart is empty!| 
 
   @all @logout @web
   Scenario: Logout do usuario
