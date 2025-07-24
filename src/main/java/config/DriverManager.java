@@ -51,8 +51,6 @@ public class DriverManager {
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
 
-            // Remove este comando daqui
-            // driver.get(getBaseUrl());
         }
         return driver;
     }

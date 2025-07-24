@@ -32,16 +32,13 @@ public class ApiAutomationExerciseService {
 	
 	public void validateCompleteProductsList() {
 		System.out.println("Validate List products");
-		response.then().statusCode(200).log().all().extract().jsonPath();
+		response.then().statusCode(200).log().body().extract().jsonPath();
 		List<Map<String, Object>> products = response.jsonPath().getList("products");
 		for (Map<String, Object> item : products) {
 		    Assert.assertTrue(item.get("id").getClass().equals(Integer.class));
-		    Assert.assertTrue(item.get("title").getClass().equals(String.class));
-		    Assert.assertTrue(item.get("description").getClass().equals(String.class));
-		    Assert.assertTrue(item.get("category").getClass().equals(String.class));
-		    Assert.assertTrue(item.get("price").getClass().equals(Double.class) || item.get("price").getClass().equals(Float.class));
-		    Assert.assertTrue(item.get("stock").getClass().equals(Integer.class));
-		    Assert.assertTrue(item.get("tags").getClass().equals(ArrayList.class));
+		    Assert.assertTrue(item.get("name").getClass().equals(String.class));
+		    Assert.assertTrue(item.get("price").getClass().equals(String.class));
+		    Assert.assertTrue(item.get("brand").getClass().equals(String.class));
 		}
 		MetodosUtils.saveTextEvidence(response.asPrettyString(), Hooks.getScenarioName());
 	}
