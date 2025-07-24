@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+Test set: Funcionalidades do site Automation Exercise
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 26.709 s <<< FAILURE! - in Funcionalidades do site Automation Exercise
+Pesquisar um produto e validar resultados contendo texto de busca #1(Testes de API - Automation Exercise)  Time elapsed: 2.08 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.iterator()" because "products" is null
+
+Acesso ao site e validação da home(Funcionalidades do site Automation Exercise)  Time elapsed: 5.257 s  <<< ERROR!
+org.openqa.selenium.remote.http.ConnectionFailedException: 
+Unable to establish websocket connection to http://localhost:54313/devtools/browser/07521cd4-6857-47d7-92e8-e5aa39acf05a
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'DESKTOP-BCK4L0Q', ip: '192.168.15.53', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: driver.version: ChromeDriver
+
+Registro de novo usuario com dados do banco(Funcionalidades do site Automation Exercise)  Time elapsed: 5.733 s  <<< ERROR!
+org.openqa.selenium.remote.http.ConnectionFailedException: 
+Unable to establish websocket connection to http://localhost:54330/devtools/browser/eecbc782-5dde-4da1-a0c9-066983a9d2d4
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'DESKTOP-BCK4L0Q', ip: '192.168.15.53', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: driver.version: ChromeDriver
+
+Login com usuario previamente cadastrado(Funcionalidades do site Automation Exercise)  Time elapsed: 3.785 s  <<< ERROR!
+org.openqa.selenium.remote.http.ConnectionFailedException: 
+Unable to establish websocket connection to http://localhost:54347/devtools/browser/e88b4698-b034-4202-8dc0-9870bcceca50
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'DESKTOP-BCK4L0Q', ip: '192.168.15.53', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: driver.version: ChromeDriver
+
+Adicao de produto ao carrinho(Funcionalidades do site Automation Exercise)  Time elapsed: 0.542 s  <<< ERROR!
+org.openqa.selenium.remote.http.ConnectionFailedException: 
+Unable to establish websocket connection to http://localhost:54364/devtools/browser/3830915d-d5e5-4bd5-b0e1-59ef6fd6020d
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'DESKTOP-BCK4L0Q', ip: '192.168.15.53', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: driver.version: ChromeDriver
+
+Remocao de produto do carrinho(Funcionalidades do site Automation Exercise)  Time elapsed: 0.481 s  <<< ERROR!
+org.openqa.selenium.remote.http.ConnectionFailedException: 
+Unable to establish websocket connection to http://localhost:54382/devtools/browser/fead899f-8981-4b4d-9cfe-77ae939e4f57
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'DESKTOP-BCK4L0Q', ip: '192.168.15.53', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: driver.version: ChromeDriver
+
+Logout do usuario(Funcionalidades do site Automation Exercise)  Time elapsed: 0.453 s  <<< ERROR!
+org.openqa.selenium.remote.http.ConnectionFailedException: 
+Unable to establish websocket connection to http://localhost:54399/devtools/browser/643d2c07-56e8-4001-bd6e-f43d19ae76c0
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'DESKTOP-BCK4L0Q', ip: '192.168.15.53', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: driver.version: ChromeDriver
+

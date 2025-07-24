@@ -49,13 +49,19 @@ Automatizar testes de interface e API com foco em:
 
 ### ⬇️ Após clonar o projeto:
 
-Abra um terminal e execute o seguinte comando para rodar os testes:
+> **⚠️ Atenção:** O comando `mvn clean test` executa os testes abrindo múltiplos browsers simultaneamente, o que pode causar lentidão ou travamentos.  
+>  
+> Para evitar esse comportamento, recomenda-se executar os testes diretamente pela sua IDE via JUnit.
 
-```bash
-mvn clean test
+#### Executando os testes via IDE (JUnit)
 
+1. Importe o projeto na sua IDE favorita (IntelliJ, Eclipse, VS Code, etc).  
+2. Navegue até as classes de teste em `src/test/java`.  
+3. Clique com o botão direito sobre a classe ou método de teste que deseja executar.  
+4. Selecione a opção **Run as JUnit Test** (ou equivalente da sua IDE).
 
-```
+Assim, os testes serão executados de forma controlada e sem abrir múltiplos browsers ao mesmo tempo.
+
 
 ## ⚙️ Integração Contínua
 

@@ -1,4 +1,8 @@
-C:\workspace\workspace-eclipse\demo-web-shop-automation-java\src\main\java\config\DriverManager.java
-C:\workspace\workspace-eclipse\demo-web-shop-automation-java\src\main\java\utils\MetodosUtils.java
-C:\workspace\workspace-eclipse\demo-web-shop-automation-java\src\main\java\utils\TestContext.java
-C:\workspace\workspace-eclipse\demo-web-shop-automation-java\src\main\java\pages\DemoWebShopPage.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\utils\TestContext.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\pages\WebAutomationExercisePage.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\config\DriverManager.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\hooks\Hooks.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\report\ExtentReport.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\utils\MetodosUtils.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\utils\ReportUtils.java
+C:\workspace\workspace-eclipse\demo-web-api-automation-java\src\main\java\pages\ApiAutomationExerciseService.java

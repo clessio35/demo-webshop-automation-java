@@ -1,1 +1,861 @@
-[{"line":1,"elements":[{"start_timestamp":"2025-07-24T18:39:56.480Z","before":[{"result":{"duration":31996600,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":10,"name":"Listar todos os produtos","description":"","id":"testes-de-api---automation-exercise;listar-todos-os-produtos;;2","after":[{"result":{"duration":3777731700,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":704997100,"status":"passed"},"line":5,"name":"que acesso a API \"https://automationexercise.com\"","match":{"arguments":[{"val":"\"https://automationexercise.com\"","offset":17}],"location":"steps.ApiAutomationExerciseStep.que_acesso_a_api(java.lang.String)"},"keyword":"Given "},{"result":{"duration":3803034200,"status":"passed"},"line":6,"name":"realizo uma request GET para \"/api/productsList\"","match":{"arguments":[{"val":"\"/api/productsList\"","offset":29}],"location":"steps.ApiAutomationExerciseStep.realizo_uma_request_get_para(java.lang.String)"},"keyword":"When "},{"result":{"duration":1935998500,"status":"passed"},"line":7,"name":"eu valido a resposta com a lista completa de produtos","match":{"location":"steps.ApiAutomationExerciseStep.eu_valido_a_resposta_com_a_lista_completa_de_produtos()"},"keyword":"Then "}],"tags":[{"name":"@list-products"},{"name":"@all"},{"name":"@api"}]},{"start_timestamp":"2025-07-24T18:40:06.796Z","before":[{"result":{"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":19,"name":"Pesquisar um produto e validar resultados contendo texto de busca","description":"","id":"testes-de-api---automation-exercise;pesquisar-um-produto-e-validar-resultados-contendo-texto-de-busca;;2","after":[{"result":{"duration":1932988800,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"status":"passed"},"line":14,"name":"que acesso a API \"https://automationexercise.com\"","match":{"arguments":[{"val":"\"https://automationexercise.com\"","offset":17}],"location":"steps.ApiAutomationExerciseStep.que_acesso_a_api(java.lang.String)"},"keyword":"Given "},{"result":{"duration":1499311600,"status":"passed"},"line":15,"name":"realizo uma request POST para \"/api/searchProduct\" com o payload","match":{"arguments":[{"val":"\"/api/searchProduct\"","offset":30}],"location":"steps.ApiAutomationExerciseStep.realizo_uma_request_post_para_com_o_payload(java.lang.String)"},"keyword":"When "},{"result":{"error_message":"java.lang.NullPointerException: Cannot invoke \"java.util.List.iterator()\" because \"products\" is null\r\n\tat pages.ApiAutomationExerciseService.validateFullResult(ApiAutomationExerciseService.java:67)\r\n\tat steps.ApiAutomationExerciseStep.eu_valido_que_todos_os_resultados_contêm(ApiAutomationExerciseStep.java:35)\r\n\tat ✽.eu valido que todos os resultados contêm \"Tshirt\"(file:///C:/workspace/workspace-eclipse/demo-web-api-automation-java/src/test/resources/features/ApiAutomationExercise.feature:16)\r\n","duration":28034200,"status":"failed"},"line":16,"name":"eu valido que todos os resultados contêm \"Tshirt\"","match":{"arguments":[{"val":"\"Tshirt\"","offset":41}],"location":"steps.ApiAutomationExerciseStep.eu_valido_que_todos_os_resultados_contêm(java.lang.String)"},"keyword":"Then "}],"tags":[{"name":"@search-product"},{"name":"@all"},{"name":"@api"}]},{"start_timestamp":"2025-07-24T18:40:10.290Z","before":[{"result":{"duration":1010300,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":28,"name":"Pesquisar um produto e validar resultados contendo texto de busca","description":"","id":"testes-de-api---automation-exercise;pesquisar-um-produto-e-validar-resultados-contendo-texto-de-busca;;2","after":[{"result":{"duration":1955988600,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":994600,"status":"passed"},"line":23,"name":"que acesso a API \"https://automationexercise.com\"","match":{"arguments":[{"val":"\"https://automationexercise.com\"","offset":17}],"location":"steps.ApiAutomationExerciseStep.que_acesso_a_api(java.lang.String)"},"keyword":"Given "},{"result":{"duration":924802000,"status":"passed"},"line":24,"name":"realizo uma request POST para \"/api/searchProduct\" com o payload","match":{"arguments":[{"val":"\"/api/searchProduct\"","offset":30}],"location":"steps.ApiAutomationExerciseStep.realizo_uma_request_post_para_com_o_payload(java.lang.String)"},"keyword":"When "},{"result":{"duration":13007900,"status":"passed"},"line":25,"name":"eu valido que o tempo de resposta é menor que '2' segundos","match":{"arguments":[{"val":"'2'","offset":46}],"location":"steps.ApiAutomationExerciseStep.eu_valido_que_o_tempo_de_resposta_é_menor_que_segundos(java.lang.String)"},"keyword":"Then "}],"tags":[{"name":"@search-product-time"},{"name":"@all"},{"name":"@api"}]}],"name":"Testes de API - Automation Exercise","description":"","id":"testes-de-api---automation-exercise","keyword":"Feature","uri":"file:src/test/resources/features/ApiAutomationExercise.feature","tags":[]},{"line":1,"elements":[{"start_timestamp":"2025-07-24T18:40:13.209Z","before":[{"result":{"duration":6762310100,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":4,"name":"Acesso ao site e validação da home","description":"","id":"funcionalidades-do-site-automation-exercise;acesso-ao-site-e-validação-da-home","after":[{"result":{"duration":264998100,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":1361005500,"status":"passed"},"line":5,"name":"que o usuario acessa o site","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"},"keyword":"Given "},{"result":{"duration":728000700,"status":"passed"},"line":6,"name":"a pagina inicial deve ser carregada corretamente","match":{"location":"steps.WebAutomationExerciseStep.a_pagina_inicial_deve_ser_carregada_corretamente()"},"keyword":"Then "}],"tags":[{"name":"@all"},{"name":"@home"},{"name":"@web"}]},{"start_timestamp":"2025-07-24T18:40:22.351Z","before":[{"result":{"duration":6666686700,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":17,"name":"Registro de novo usuario com dados do banco","description":"","id":"funcionalidades-do-site-automation-exercise;registro-de-novo-usuario-com-dados-do-banco;;2","after":[{"result":{"duration":349017000,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":236999500,"status":"passed"},"line":10,"name":"que o usuario acessa o site","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"},"keyword":"Given "},{"result":{"duration":2130997900,"status":"passed"},"line":11,"name":"que o usuario esta na pagina de Signup","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_esta_na_pagina_de_signup()"},"keyword":"And "},{"result":{"duration":6078587000,"status":"passed"},"line":12,"name":"ele preenche os dados obrigatorios com valores do banco","match":{"location":"steps.WebAutomationExerciseStep.ele_preenche_os_dados_obrigatorios_com_valores_do_banco()"},"keyword":"When "},{"result":{"duration":2483032500,"status":"passed"},"line":13,"name":"confirma o cadastro","match":{"location":"steps.WebAutomationExerciseStep.confirma_o_cadastro()"},"keyword":"And "},{"result":{"duration":210502000,"status":"passed"},"line":14,"name":"o sistema deve exibir a mensagem \"Account Created!\"","match":{"arguments":[{"val":"\"Account Created!\"","offset":33}],"location":"steps.WebAutomationExerciseStep.o_sistema_deve_exibir_a_mensagem(java.lang.String)"},"keyword":"Then "}],"tags":[{"name":"@all"},{"name":"@registration"},{"name":"@web"}]},{"start_timestamp":"2025-07-24T18:40:40.522Z","before":[{"result":{"duration":5110678900,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":21,"name":"Login com usuario previamente cadastrado","description":"","id":"funcionalidades-do-site-automation-exercise;login-com-usuario-previamente-cadastrado","after":[{"result":{"duration":321998600,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":85992900,"status":"passed"},"line":22,"name":"que o usuario acessa o site","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"},"keyword":"Given "},{"result":{"duration":1295995700,"status":"passed"},"line":23,"name":"que o usuario esta na pagina de login","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_esta_na_pagina_de_login()"},"keyword":"And "},{"result":{"duration":4982920700,"status":"passed"},"line":24,"name":"ele realiza login com os dados do banco","match":{"location":"steps.WebAutomationExerciseStep.ele_realiza_login_com_os_dados_do_banco()"},"keyword":"When "},{"result":{"duration":306007000,"status":"passed"},"line":25,"name":"o sistema deve exibir a mensagem de login com sucesso","match":{"location":"steps.WebAutomationExerciseStep.o_sistema_deve_exibir_a_mensagem_de_login_com_sucesso()"},"keyword":"Then "}],"tags":[{"name":"@all"},{"name":"@login"},{"name":"@web"}]},{"start_timestamp":"2025-07-24T18:40:52.638Z","before":[{"result":{"duration":2442518600,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":28,"name":"Adicao de produto ao carrinho","description":"","id":"funcionalidades-do-site-automation-exercise;adicao-de-produto-ao-carrinho","after":[{"result":{"duration":481000100,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":3087266900,"status":"passed"},"line":29,"name":"que o usuario acessa o site","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"},"keyword":"Given "},{"result":{"duration":6266128800,"status":"passed"},"line":30,"name":"que o usuario esta logado","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_esta_logado()"},"keyword":"And "},{"result":{"duration":4458392900,"status":"passed"},"line":31,"name":"ele adiciona um produto ao carrinho pela pagina de produtos","match":{"location":"steps.WebAutomationExerciseStep.ele_adiciona_um_produto_ao_carrinho_pela_pagina_de_produtos()"},"keyword":"When "},{"result":{"duration":1834703400,"status":"passed"},"line":32,"name":"o carrinho deve conter o produto adicionado com o nome correto","match":{"location":"steps.WebAutomationExerciseStep.o_carrinho_deve_conter_o_produto_adicionado_com_o_nome_correto()"},"keyword":"Then "}],"tags":[{"name":"@all"},{"name":"@cart"},{"name":"@web"}]},{"start_timestamp":"2025-07-24T18:41:11.215Z","before":[{"result":{"duration":5748690300,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":42,"name":"Remocao de produto do carrinho","description":"","id":"funcionalidades-do-site-automation-exercise;remocao-de-produto-do-carrinho;;2","after":[{"result":{"duration":263000200,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":88994800,"status":"passed"},"line":36,"name":"que o usuario acessa o site","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"},"keyword":"Given "},{"result":{"duration":11121089700,"status":"passed"},"line":37,"name":"que o usuario possui um produto no carrinho","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_possui_um_produto_no_carrinho()"},"keyword":"And "},{"result":{"duration":292999600,"status":"passed"},"line":38,"name":"ele remove o produto do carrinho","match":{"location":"steps.WebAutomationExerciseStep.ele_remove_o_produto_do_carrinho()"},"keyword":"When "},{"result":{"duration":736382400,"status":"passed"},"line":39,"name":"o sistema deve exibir a mensagem de exclusao \"Cart is empty!\"","match":{"arguments":[{"val":"\"Cart is empty!\"","offset":45}],"location":"steps.WebAutomationExerciseStep.o_sistema_deve_exibir_a_mensagem_de_exclusao(java.lang.String)"},"keyword":"Then "}],"tags":[{"name":"@all"},{"name":"@remove"},{"name":"@web"}]},{"start_timestamp":"2025-07-24T18:41:29.476Z","before":[{"result":{"duration":5750726900,"status":"passed"},"match":{"location":"hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"}}],"line":45,"name":"Logout do usuario","description":"","id":"funcionalidades-do-site-automation-exercise;logout-do-usuario","after":[{"result":{"duration":248950800,"status":"passed"},"match":{"location":"hooks.Hooks.tearDown(io.cucumber.java.Scenario)"}}],"type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":83996800,"status":"passed"},"line":46,"name":"que o usuario acessa o site","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"},"keyword":"Given "},{"result":{"duration":5174317200,"status":"passed"},"line":47,"name":"que o usuario esta logado na aplicacao","match":{"location":"steps.WebAutomationExerciseStep.que_o_usuario_esta_logado_na_aplicacao()"},"keyword":"And "},{"result":{"duration":1473462900,"status":"passed"},"line":48,"name":"ele realiza o logout","match":{"location":"steps.WebAutomationExerciseStep.ele_realiza_o_logout()"},"keyword":"When "},{"result":{"duration":448300600,"status":"passed"},"line":49,"name":"o sistema deve redirecionar para a pagina de login ou home publica","match":{"location":"steps.WebAutomationExerciseStep.o_sistema_deve_redirecionar_para_a_pagina_de_login_ou_home_publica()"},"keyword":"Then "}],"tags":[{"name":"@all"},{"name":"@logout"},{"name":"@web"}]}],"name":"Funcionalidades do site Automation Exercise","description":"","id":"funcionalidades-do-site-automation-exercise","keyword":"Feature","uri":"file:src/test/resources/features/WebAutomationExercise.feature","tags":[]}]
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2025-07-24T19:09:49.823Z",
+        "before": [
+          {
+            "result": {
+              "duration": 25002100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 10,
+        "name": "Listar todos os produtos",
+        "description": "",
+        "id": "testes-de-api---automation-exercise;listar-todos-os-produtos;;2",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:54992/devtools/browser/a5a4b166-a307-4242-87c3-eeec11aeef5d\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 3121000000,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 843010700,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "que acesso a API \"https://automationexercise.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://automationexercise.com\"",
+                  "offset": 17
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.que_acesso_a_api(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3811497300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "realizo uma request GET para \"/api/productsList\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/api/productsList\"",
+                  "offset": 29
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.realizo_uma_request_get_para(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2274998700,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "eu valido a resposta com a lista completa de produtos",
+            "match": {
+              "location": "steps.ApiAutomationExerciseStep.eu_valido_a_resposta_com_a_lista_completa_de_produtos()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@list-products"
+          },
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@api"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-07-24T19:10:00.092Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 19,
+        "name": "Pesquisar um produto e validar resultados contendo texto de busca",
+        "description": "",
+        "id": "testes-de-api---automation-exercise;pesquisar-um-produto-e-validar-resultados-contendo-texto-de-busca;;2",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55012/devtools/browser/d8ceff04-ab13-432e-a630-aa6ef67765ee\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 1335001100,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1005300,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "que acesso a API \"https://automationexercise.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://automationexercise.com\"",
+                  "offset": 17
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.que_acesso_a_api(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1912009500,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "realizo uma request POST para \"/api/searchProduct\" com o payload",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/api/searchProduct\"",
+                  "offset": 30
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.realizo_uma_request_post_para_com_o_payload(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException: Cannot invoke \"java.util.List.iterator()\" because \"products\" is null\r\n\tat pages.ApiAutomationExerciseService.validateFullResult(ApiAutomationExerciseService.java:67)\r\n\tat steps.ApiAutomationExerciseStep.eu_valido_que_todos_os_resultados_contêm(ApiAutomationExerciseStep.java:35)\r\n\tat ✽.eu valido que todos os resultados contêm \"Tshirt\"(file:///C:/workspace/workspace-eclipse/demo-web-api-automation-java/src/test/resources/features/ApiAutomationExercise.feature:16)\r\n",
+              "duration": 26995200,
+              "status": "failed"
+            },
+            "line": 16,
+            "name": "eu valido que todos os resultados contêm \"Tshirt\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Tshirt\"",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.eu_valido_que_todos_os_resultados_contêm(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@search-product"
+          },
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@api"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-07-24T19:10:03.396Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1003500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "Pesquisar um produto e validar resultados contendo texto de busca",
+        "description": "",
+        "id": "testes-de-api---automation-exercise;pesquisar-um-produto-e-validar-resultados-contendo-texto-de-busca;;2",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55029/devtools/browser/d31b70fc-d8f9-4c81-b69d-51ca8fcf898d\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 1538248600,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "que acesso a API \"https://automationexercise.com\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://automationexercise.com\"",
+                  "offset": 17
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.que_acesso_a_api(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 892972400,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "realizo uma request POST para \"/api/searchProduct\" com o payload",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/api/searchProduct\"",
+                  "offset": 30
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.realizo_uma_request_post_para_com_o_payload(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 14001600,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "eu valido que o tempo de resposta é menor que \u00272\u0027 segundos",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u00272\u0027",
+                  "offset": 46
+                }
+              ],
+              "location": "steps.ApiAutomationExerciseStep.eu_valido_que_o_tempo_de_resposta_é_menor_que_segundos(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@search-product-time"
+          },
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@api"
+          }
+        ]
+      }
+    ],
+    "name": "Testes de API - Automation Exercise",
+    "description": "",
+    "id": "testes-de-api---automation-exercise",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/ApiAutomationExercise.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2025-07-24T19:10:05.953Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55046/devtools/browser/fee989b9-5674-45bf-9aaa-6a3b7514e415\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.beforeScenario(Hooks.java:32)\r\n",
+              "duration": 1790996100,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Acesso ao site e validação da home",
+        "description": "",
+        "id": "funcionalidades-do-site-automation-exercise;acesso-ao-site-e-validação-da-home",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55063/devtools/browser/262c0059-5a90-41b7-8998-866997764374\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 1964001400,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "que o usuario acessa o site",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "a pagina inicial deve ser carregada corretamente",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.a_pagina_inicial_deve_ser_carregada_corretamente()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@home"
+          },
+          {
+            "name": "@web"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-07-24T19:10:09.757Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55081/devtools/browser/2c5cbe8d-776b-4d39-be85-7e92ad6cf0a8\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.beforeScenario(Hooks.java:32)\r\n",
+              "duration": 1961996900,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 17,
+        "name": "Registro de novo usuario com dados do banco",
+        "description": "",
+        "id": "funcionalidades-do-site-automation-exercise;registro-de-novo-usuario-com-dados-do-banco;;2",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55102/devtools/browser/76b94f1c-7bc5-4846-92fa-33188f02bd5f\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 4996002600,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "que o usuario acessa o site",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000300,
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "que o usuario esta na pagina de Signup",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_esta_na_pagina_de_signup()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 12,
+            "name": "ele preenche os dados obrigatorios com valores do banco",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.ele_preenche_os_dados_obrigatorios_com_valores_do_banco()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1006400,
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "confirma o cadastro",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.confirma_o_cadastro()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 14,
+            "name": "o sistema deve exibir a mensagem \"Account Created!\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Account Created!\"",
+                  "offset": 33
+                }
+              ],
+              "location": "steps.WebAutomationExerciseStep.o_sistema_deve_exibir_a_mensagem(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@registration"
+          },
+          {
+            "name": "@web"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-07-24T19:10:16.753Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55125/devtools/browser/5d14b0bf-40fc-4ddc-b94c-989ad3d82eb0\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.beforeScenario(Hooks.java:32)\r\n",
+              "duration": 5234000900,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 21,
+        "name": "Login com usuario previamente cadastrado",
+        "description": "",
+        "id": "funcionalidades-do-site-automation-exercise;login-com-usuario-previamente-cadastrado",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55144/devtools/browser/4122ce85-e7f5-49a0-a494-e6f12dcf9e0a\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 6926552600,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000700,
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "que o usuario acessa o site",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000700,
+              "status": "skipped"
+            },
+            "line": 23,
+            "name": "que o usuario esta na pagina de login",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_esta_na_pagina_de_login()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 24,
+            "name": "ele realiza login com os dados do banco",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.ele_realiza_login_com_os_dados_do_banco()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 25,
+            "name": "o sistema deve exibir a mensagem de login com sucesso",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.o_sistema_deve_exibir_a_mensagem_de_login_com_sucesso()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@login"
+          },
+          {
+            "name": "@web"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-07-24T19:10:28.951Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55163/devtools/browser/2c9e08f6-a537-42b9-8bc3-199875318442\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.beforeScenario(Hooks.java:32)\r\n",
+              "duration": 2687999500,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "Adicao de produto ao carrinho",
+        "description": "",
+        "id": "funcionalidades-do-site-automation-exercise;adicao-de-produto-ao-carrinho",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55182/devtools/browser/619526cb-f766-458c-a13c-b166dca69175\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 3433005300,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 29,
+            "name": "que o usuario acessa o site",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 30,
+            "name": "que o usuario esta logado",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_esta_logado()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 31,
+            "name": "ele adiciona um produto ao carrinho pela pagina de produtos",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.ele_adiciona_um_produto_ao_carrinho_pela_pagina_de_produtos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 32,
+            "name": "o carrinho deve conter o produto adicionado com o nome correto",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.o_carrinho_deve_conter_o_produto_adicionado_com_o_nome_correto()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@cart"
+          },
+          {
+            "name": "@web"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-07-24T19:10:35.219Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55199/devtools/browser/1abcacac-f967-4926-aec9-07897dccf4d2\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.beforeScenario(Hooks.java:32)\r\n",
+              "duration": 1996994400,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 42,
+        "name": "Remocao de produto do carrinho",
+        "description": "",
+        "id": "funcionalidades-do-site-automation-exercise;remocao-de-produto-do-carrinho;;2",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55216/devtools/browser/191889bd-9dc6-406b-b22f-ccde64490148\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 1938000800,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 36,
+            "name": "que o usuario acessa o site",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 37,
+            "name": "que o usuario possui um produto no carrinho",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_possui_um_produto_no_carrinho()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 38,
+            "name": "ele remove o produto do carrinho",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.ele_remove_o_produto_do_carrinho()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 39,
+            "name": "o sistema deve exibir a mensagem de exclusao \"Cart is empty!\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Cart is empty!\"",
+                  "offset": 45
+                }
+              ],
+              "location": "steps.WebAutomationExerciseStep.o_sistema_deve_exibir_a_mensagem_de_exclusao(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@remove"
+          },
+          {
+            "name": "@web"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-07-24T19:10:39.250Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55234/devtools/browser/ada9e945-4108-4f87-8f73-51cc3b4a2d9f\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.beforeScenario(Hooks.java:32)\r\n",
+              "duration": 2391000800,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 45,
+        "name": "Logout do usuario",
+        "description": "",
+        "id": "funcionalidades-do-site-automation-exercise;logout-do-usuario",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to http://localhost:55251/devtools/browser/94fbc1d7-2f28-4b71-997c-350d77a1a7e1\nBuild info: version: \u00274.4.0\u0027, revision: \u0027e5c75ed026a\u0027\nSystem info: host: \u0027DESKTOP-BCK4L0Q\u0027, ip: \u0027192.168.15.53\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002717.0.9\u0027\nDriver info: driver.version: ChromeDriver\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.\u003cinit\u003e(NettyWebSocket.java:102)\r\n\tat org.openqa.selenium.remote.http.netty.NettyWebSocket.lambda$create$3(NettyWebSocket.java:128)\r\n\tat org.openqa.selenium.remote.http.netty.NettyClient.openSocket(NettyClient.java:106)\r\n\tat org.openqa.selenium.devtools.Connection.\u003cinit\u003e(Connection.java:77)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.lambda$new$2(ChromiumDriver.java:116)\r\n\tat java.base/java.util.Optional.map(Optional.java:260)\r\n\tat org.openqa.selenium.chromium.ChromiumDriver.\u003cinit\u003e(ChromiumDriver.java:114)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:81)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:70)\r\n\tat config.DriverManager.getDriver(DriverManager.java:51)\r\n\tat hooks.Hooks.tearDown(Hooks.java:48)\r\n",
+              "duration": 1676008000,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hooks.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1002300,
+              "status": "skipped"
+            },
+            "line": 46,
+            "name": "que o usuario acessa o site",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_acessa_o_site()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 47,
+            "name": "que o usuario esta logado na aplicacao",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.que_o_usuario_esta_logado_na_aplicacao()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 998100,
+              "status": "skipped"
+            },
+            "line": 48,
+            "name": "ele realiza o logout",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.ele_realiza_o_logout()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 49,
+            "name": "o sistema deve redirecionar para a pagina de login ou home publica",
+            "match": {
+              "location": "steps.WebAutomationExerciseStep.o_sistema_deve_redirecionar_para_a_pagina_de_login_ou_home_publica()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@all"
+          },
+          {
+            "name": "@logout"
+          },
+          {
+            "name": "@web"
+          }
+        ]
+      }
+    ],
+    "name": "Funcionalidades do site Automation Exercise",
+    "description": "",
+    "id": "funcionalidades-do-site-automation-exercise",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/WebAutomationExercise.feature",
+    "tags": []
+  }
+]
