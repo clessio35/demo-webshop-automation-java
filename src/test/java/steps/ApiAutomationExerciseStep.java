@@ -26,21 +26,18 @@ public class ApiAutomationExerciseStep {
 
 
 	@When("realizo uma request POST para {string} com o payload")
-	public void realizo_uma_request_post_para_com_o_payload(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void realizo_uma_request_post_para_com_o_payload(String endpoint) {
+	    api.sendRequestPOSTMethod(endpoint);
 	}
 
 	@Then("eu valido que todos os resultados contêm {string}")
-	public void eu_valido_que_todos_os_resultados_contêm(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void eu_valido_que_todos_os_resultados_contêm(String result) {
+	    api.validateFullResult(result);
 	}
 
 	@Then("eu valido que o tempo de resposta é menor que {string} segundos")
-	public void eu_valido_que_o_tempo_de_resposta_é_menor_que_segundos(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void eu_valido_que_o_tempo_de_resposta_é_menor_que_segundos(String timeResp) {
+	    api.validateTimeResponse(timeResp);
 	}
 
 }

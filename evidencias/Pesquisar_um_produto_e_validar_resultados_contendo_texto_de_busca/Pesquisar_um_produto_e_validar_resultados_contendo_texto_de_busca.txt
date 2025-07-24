@@ -1,0 +1,3 @@
+<html>
+  <body>{"responseCode": 400, "message": "Bad request, search_product parameter is missing in POST request."}</body>
+</html>

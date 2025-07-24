@@ -5,7 +5,7 @@ Projeto de automação de testes do site [Automation Exercise](https://automatio
 
 O projeto também utiliza **Apache POI** para leitura/escrita de planilhas Excel e **Java Faker** para geração de dados dinâmicos.
 
-🔗 Repositório: [github.com/clessio35/demo-web-api-automation-java](https://github.com/clessio35/demo-web-api-automation-java)
+🔗 Repositório: [github.com/clessio35/demo-webshop-automation-java](https://github.com/clessio35/demo-webshop-automation-java)
 
 ---
 
