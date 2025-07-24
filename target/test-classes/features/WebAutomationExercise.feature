@@ -8,7 +8,7 @@ Feature: Funcionalidades do site Automation Exercise
   @all @registration @web
   Scenario: Registro de novo usuario com dados do banco
     Given que o usuario acessa o site
-    And que o usuario esta na pagina de Signup/Login
+    And que o usuario esta na pagina de Signup
     When ele preenche os dados obrigatorios com valores do banco
     And confirma o cadastro
     Then o sistema deve exibir a mensagem "<msg>"
@@ -22,7 +22,7 @@ Feature: Funcionalidades do site Automation Exercise
     Given que o usuario acessa o site
     And que o usuario esta na pagina de login
     When ele realiza login com os dados do banco
-    Then o sistema deve exibir a mensagem "Logged in as <nome_do_usuario>"
+    Then o sistema deve exibir a mensagem de login com sucesso
 
   @all @cart @web
   Scenario: Adicao de produto ao carrinho

@@ -63,7 +63,7 @@ public class WebAutomationExercisePage {
 		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
 	}
 
-	public void accessSignupAndLogin() {
+	public void accessSignup() {
 		System.out.println("access signup");
 		isElementVisible(driver, By.xpath("//a[normalize-space()='Signup / Login']"));
 		metodo.clickElementByXpath("//a[normalize-space()='Signup / Login']");
@@ -126,6 +126,40 @@ public class WebAutomationExercisePage {
 		WebElement el = wait
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//b[normalize-space()='Account Created!']")));
 		assertEquals(msg.toUpperCase(), el.getText().trim().toUpperCase());
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	public void accessSignupAndLogin() {
+		System.out.println("login");
+		isElementVisible(driver, By.xpath("//a[normalize-space()='Signup / Login']"));
+		metodo.clickElementByXpath("//a[normalize-space()='Signup / Login']");
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	public void realizeLogin() {
+		System.out.println("realize login");
+		WebElement inputEmail = driver.findElement(By.xpath("//form[@action='/login']//input[@name='email']")),
+				inputPass = driver.findElement(By.xpath("//form[@action='/login']//input[@type='password']")),
+				btnSignup = driver.findElement(By.xpath("//form[@action='/login']//button[@type='submit']"));
+		
+		String email = MetodosUtils.readCell(1, "Email");
+    	String password = MetodosUtils.readCell(1, "Password");
+    	System.out.println("email: " + email + " password: " + password);
+ 
+		inputEmail.sendKeys(email);
+		inputPass.sendKeys(password);
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+		btnSignup.click();
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	public void validateLoginSuccess() {
+		System.out.println("validate login");
+		isElementVisible(driver, By.xpath("//i[@class='fa fa-user']"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebElement el = wait
+					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@class='fa fa-user']")));
+		Assert.assertTrue("Element not found", el.isDisplayed());
 		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
 	}
 

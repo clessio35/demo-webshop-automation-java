@@ -28,9 +28,9 @@ public class WebAutomationExerciseStep {
         web.validateHomePage(text);
     }
 
-    @Given("que o usuario esta na pagina de Signup\\/Login")
-    public void que_o_usuario_esta_na_pagina_de_signup_login() {
-        web.accessSignupAndLogin();
+    @Given("que o usuario esta na pagina de Signup")
+    public void que_o_usuario_esta_na_pagina_de_signup() {
+        web.accessSignup();
     }
 
     @When("ele preenche os dados obrigatorios com valores do banco")
@@ -46,6 +46,27 @@ public class WebAutomationExerciseStep {
     @Then("o sistema deve exibir a mensagem {string}")
     public void o_sistema_deve_exibir_a_mensagem(String msg) {
         web.validateAccountCreated(msg);
+    }
+    
+    @Given("que o usuario esta na pagina de login")
+    public void que_o_usuario_esta_na_pagina_de_login() {
+    	 web.accessSignupAndLogin();
+    }
+    
+    @When("ele realiza login com os dados do banco")
+    public void ele_realiza_login_com_os_dados_do_banco() {
+        web.realizeLogin();
+    }
+    
+    @Then("o sistema deve exibir a mensagem de login com sucesso")
+    public void o_sistema_deve_exibir_a_mensagem_de_login_com_sucesso() {
+        web.validateLoginSuccess();
+    }
+    
+    @Given("que o usuario esta logado")
+    public void que_o_usuario_esta_logado() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 
     @When("ele adiciona um produto ao carrinho pela pagina de produtos")
