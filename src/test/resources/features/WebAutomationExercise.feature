@@ -3,7 +3,7 @@ Feature: Funcionalidades do site Automation Exercise
   @all @home @web
   Scenario: Acesso ao site e validação da home
     Given que o usuario acessa o site
-    Then a pagina inicial deve ser carregada corretamente com o texto "Home"
+    Then a pagina inicial deve ser carregada corretamente
 
   @all @registration @web
   Scenario: Registro de novo usuario com dados do banco

@@ -52,7 +52,7 @@ public class WebAutomationExercisePage {
 		Assert.assertTrue("URL incorreta ao acessar o site", getUrl.contains(url));
 	}
 
-	public void validateHomePage(String text) {
+	public void validateHomePage() {
 		System.out.println("validate home page");
 		isElementVisible(driver, By.xpath("//a[normalize-space()='Home']"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -210,6 +210,21 @@ public class WebAutomationExercisePage {
 		WebElement el = wait
 					.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//b[normalize-space()='Cart is empty!']")));
 		Assert.assertEquals(msg, el.getText().trim());
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	public void realizeLogout() {
+		System.out.println("logout");
+		isElementVisible(driver, By.xpath("//a[normalize-space()='Logout']"));
+		metodo.clickElementByXpath("//a[normalize-space()='Logout']");
+		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
+	}
+
+	public void validateInicialPageAfterLogout() {
+		System.out.println("validate inicial page after logout");
+		validateHomePage();
+		isElementVisible(driver, By.xpath("//h2[normalize-space()='Login to your account']"));
+		isElementVisible(driver, By.xpath("//h2[normalize-space()='New User Signup!']"));
 		MetodosUtils.takeStepScreenshot(getDriver(), Hooks.getScenarioName());
 	}
 

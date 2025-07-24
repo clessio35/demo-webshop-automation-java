@@ -23,9 +23,9 @@ public class WebAutomationExerciseStep {
         web.validateUrlAccess();
     }
 
-    @Then("a pagina inicial deve ser carregada corretamente com o texto {string}")
-    public void a_pagina_inicial_deve_ser_carregada_corretamente_com_o_texto(String text) {
-        web.validateHomePage(text);
+    @Then("a pagina inicial deve ser carregada corretamente")
+    public void a_pagina_inicial_deve_ser_carregada_corretamente() {
+        web.validateHomePage();
     }
 
     @Given("que o usuario esta na pagina de Signup")
@@ -101,19 +101,17 @@ public class WebAutomationExerciseStep {
 
     @Given("que o usuario esta logado na aplicacao")
     public void que_o_usuario_esta_logado_na_aplicacao() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    	web.accessSignupAndLogin();
+		web.realizeLogin();
     }
 
     @When("ele realiza o logout")
     public void ele_realiza_o_logout() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        web.realizeLogout();
     }
 
     @Then("o sistema deve redirecionar para a pagina de login ou home publica")
     public void o_sistema_deve_redirecionar_para_a_pagina_de_login_ou_home_publica() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        web.validateInicialPageAfterLogout();
     }
 }
